@@ -1,4 +1,4 @@
-""" Aula 05 - Tipos de Dados - Dicts """
+""" Aula 04 - Tipos de Dados - Dicts """
 
 # dict (dicionário)
 # coleção de key-value (chave-valor)
