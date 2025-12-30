@@ -1,4 +1,4 @@
-""" Aula 04 - Prorieades """
+""" Aula 04 - Propriedades """
 
 # forma de controlar acesso aos atributos de uma instancia
 # formas personalizadas de obter e alterar o valor de um atributo
