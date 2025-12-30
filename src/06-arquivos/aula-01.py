@@ -1,3 +1,5 @@
+""" Aula 01 - Curso de Python para iniciantes  # 12 – Manipulando Arquivos """
+
 # arquivo = open("src/06-arquivos/test3.txt", "x")
 
 # Mode
