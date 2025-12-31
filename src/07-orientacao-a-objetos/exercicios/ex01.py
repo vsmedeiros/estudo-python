@@ -48,9 +48,13 @@ class Aluno:
 
     def __hash__(self):
         return hash(self.prontuario)
+    
+    def __str__(self):
+        return f"Aluno(prontuario='{self.prontuario}', nome='{self.nome}', email='{self.email}')"
 
 
-aluno1 = Aluno.from_string("SP0101,João da Silva,joao@email.com")
-aluno2 = Aluno("SP0101", "João Silva", "joao2@email.com")
+if __name__ == "__main__":
+    aluno1 = Aluno.from_string("SP0101,João da Silva,joao@email.com")
+    aluno2 = Aluno("SP0101", "João Silva", "joao2@email.com")
 
-print(aluno1 == aluno2)
+    print(aluno1 == aluno2)

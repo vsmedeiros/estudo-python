@@ -1,8 +1,12 @@
+from ex03 import Participacao
+from ex01 import Aluno
+
 class Projeto:
     def __init__(self, codigo: int, titulo: str, responsavel: str):
         self.codigo = codigo
         self.titulo = titulo
         self.responsavel = responsavel
+        self.participacoes = []
 
     @classmethod
     def from_string(cls, dados: str):
@@ -47,20 +51,32 @@ class Projeto:
         if isinstance(value, self.__class__):
             return self.codigo == value.codigo
         return False
-    
+
     def __hash__(self):
         return hash(self.codigo)
-    
+
     def __str__(self):
         return f"Projeto(codigo={self.codigo}, titulo='{self.titulo}', responsavel='{self.responsavel}')"
+    
+    def add_participacao(self, participacao):
+        if not isinstance(participacao, Participacao):
+            raise ValueError("A participação deve ser uma instância de Participacao")
+        self.participacoes.append(participacao)
+
+    def print_participacoes(self):
+        for participacao in self.participacoes:
+            print(participacao)
 
 
 if __name__ == "__main__":
-    p1 = Projeto.from_string(
+    projeto1 = Projeto.from_string(
         "1,Laboratório de Desenvolvimento de Software,Pedro Gomes"
     )
-    p2 = Projeto(1, "Outro título", "Outro professor")
+    projeto2 = Projeto(1, "Outro título", "Outro professor")
+    aluno1 = Aluno("SP0101", "João da Silva", "joao@email.com")
 
-    print(p1 == p2)
-    print(p1)
-    print(p2)
+    projeto1.add_participacao(Participacao(101, "2024-01-15", "2024-06-15", aluno1, projeto1))
+    projeto1.add_participacao(Participacao(102, "2024-02-01", "2024-07-01", aluno1, projeto1))
+
+    print(projeto1)
+    projeto1.print_participacoes()
